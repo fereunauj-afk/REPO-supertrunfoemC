@@ -2,8 +2,8 @@
 
 struct CartaSuperTrunfo {
     char  estado;
-    char  codigo[5];          
-    char  nomeCidade[50];     
+    char  codigo[5];         // Espaço para "A01" mais o caractere nulo que finaliza uma string
+    char  nomeCidade[50];    // Espaço para nomes de cidades, até 49 caracteres
     int   populacao;
     float area;
     float pib;
@@ -12,6 +12,9 @@ struct CartaSuperTrunfo {
 
 int main() {
     
+    // Declaração das variáveis:
+    // Criamos duas variáveis, 'carta1' e 'carta2'.
+    
     struct CartaSuperTrunfo carta1;
     struct CartaSuperTrunfo carta2;
 
@@ -19,18 +22,18 @@ int main() {
     printf("--- Cadastro primeira carta ---\n");
 
     printf("Digite o Estado (A-H): ");
-    scanf(" %c", &carta1.estado); 
+    scanf(" %c", &carta1.estado);  // O espaço antes de %c ignora quebras de linha anteriores.
 
     printf("Digite o código da Carta (ex: B02): ");
     scanf("%s", carta1.codigo);
 
     printf("Digite o nome da cidade: ");
-
+    // Usamos " %[^\n]" para ler o nome da cidade, mesmo que tenha espaços.
     scanf(" %[^\n]", carta1.nomeCidade);
 
     printf("Digite a População: ");
     scanf("%d", &carta1.populacao);
-
+    // %.2f formata para exibir apenas 2 casas decimais.
     printf("Digite a área (em km2): ");
     scanf("%f", &carta1.area);
 
@@ -39,7 +42,7 @@ int main() {
 
     printf("Digite o número de pontos turisticos: ");
     scanf("%d", &carta1.pontosTuristicos);
-
+    
     // --- CADASTRO SEGUNDA CARTA ---
     printf("\n--- Cadastro segunda carta ---\n");
 
@@ -77,7 +80,7 @@ int main() {
     printf("PIB: %.2f bilhoes de reais\n", carta1.pib);
     printf("Numero de Pontos Turisticos: %d\n", carta1.pontosTuristicos);
 
-    printf("\n"); 
+    printf("\n"); // Adiciona uma linha em branco para separar as cartas
 
     // Exibindo dados da segunda Carta
     printf("Carta 2:\n");
@@ -89,5 +92,6 @@ int main() {
     printf("PIB: %.2f bilhoes de reais\n", carta2.pib);
     printf("Numero de Pontos Turisticos: %d\n", carta2.pontosTuristicos);
 
-    return 0; 
+    return 0; // Indica que o programa terminou com sucesso
+
 }
